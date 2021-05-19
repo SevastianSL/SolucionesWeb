@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head th:replace="Layouts/fragmentos :: cabeza">
+<meta charset="utf-8">
+
+</head>
+<body>
+
+	<input type="checkbox" id="check">
+	<!--header area start-->
+	<div class="cabeza" th:replace="Layouts/fragmentos :: Primerfragment"></div>
+	<!--header area end-->
+	<div class="mobile_nav" th:replace="Layouts/fragmentos :: Segundofragment"></div>
+	<!--sidebar start-->
+	<div class="sidebar" th:replace="Layouts/fragmentos :: Tercerfragment"></div>
+	<!--sidebar end-->
+
+	<div class="content">	
+	<div class="container mt-4">
+      	<form th:action="@{/usuario/form}" th:object="${usuario}" method="post" class="needs-validation" novalidate>
+					<div class="card">
+						<div class="card-header bg-info text-white">Datos de la Categoría</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-6 mb-3">
+									<label>Usuario:</label> <input th:field="*{usuario}" type="text"
+										class="form-control" placeholder="Ingrese nombre"
+										minlength="1" maxlength="50" required="required" />
+									<div class="invalid-feedback">Ingrese el nombre</div>
+								</div>
+								<div class="col-md-6 mb-3">
+									<label>Contraseña:</label> <input th:field="*{contrasena}"
+										type="password" class="form-control"
+										placeholder="Ingrese descripción" required="required" />
+									<div class="invalid-feedback">Ingrese los apellidos</div>
+								</div>
+							</div>
+							<br>
+								<div class="row">
+								<div class="col-12 text-center">
+									<button type="submit" class="btn btn-dark">
+										<i class="fas fa-save"></i> Guardar Usuario
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+      </div>	
+	</div>
+
+	<script type="text/javascript" th:src="@{/js/nav.js}"></script>
+
+</body>
+</html>
